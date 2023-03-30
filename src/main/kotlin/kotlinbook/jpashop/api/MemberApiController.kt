@@ -74,7 +74,7 @@ class MemberApiController(
      */
     @GetMapping("/api/v2/members")
     fun membersV2(): Result<List<MemberDto>> {
-        val findMembers: List<Member> = memberService.findMembers()
+        val findMembers = memberService.findMembers()
         //엔티티 -> DTO 변환
         val collect = findMembers.map { MemberDto(it.name) }
         return Result(collect)
